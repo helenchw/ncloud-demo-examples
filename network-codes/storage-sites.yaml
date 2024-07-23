@@ -1,0 +1,171 @@
+name: nexoedge-agents
+services:
+  site-1:
+    image: ${NEXOEDGE_AGENT_IMAGE_NAME}:${TAG}
+    environment:
+      NCLOUD_AGENT_Agent_Ip: ${NEXOEDGE_STORAGE_NODE_1_IP}
+      NCLOUD_AGENT_Agent_Num_containers: "1"
+      NCLOUD_AGENT_Container01_Id: "1"
+      NCLOUD_AGENT_Container02_Id: "2"
+      NCLOUD_AGENT_Container01_Capacity: "107374182400"
+      NCLOUD_AGENT_Container02_Capacity: "107374182400"
+      NCLOUD_AGENT_Container01_Url: "/data01"
+      NCLOUD_AGENT_Container02_Url: "/data02"
+      NCLOUD_GENERAL_Proxy01_Ip: ${NEXOEDGE_PROXY_IP}
+      NCLOUD_GENERAL_Proxy01_Coord_port: ${NEXOEDGE_PROXY_PORT}
+      NCLOUD_GENERAL_Network_Use_curve: "1"
+      NCLOUD_GENERAL_Network_Agent_curve_public_key_file: "/run/secrets/agent_pkey"
+      NCLOUD_GENERAL_Network_Agent_curve_secret_key_file: "/run/secrets/agent_skey"
+      NCLOUD_GENERAL_Network_Proxy_curve_public_key_file: "/run/secrets/proxy_pkey"
+    volumes:
+      - type: bind
+        source: ${NEXOEDGE_DATA_DIR}/container01
+        target: /data01
+      - type: bind
+        source: ${NEXOEDGE_DATA_DIR}/container02
+        target: /data02
+    secrets:
+      - agent_pkey
+      - agent_skey
+      - proxy_pkey
+    networks:
+      - nexoedge
+    depends_on:
+      - proxy
+
+  site-2:
+    image: ${NEXOEDGE_AGENT_IMAGE_NAME}:${TAG}
+    environment:
+      NCLOUD_AGENT_Agent_Ip: ${NEXOEDGE_STORAGE_NODE_2_IP}
+      NCLOUD_AGENT_Agent_Num_containers: "1"
+      NCLOUD_AGENT_Container01_Id: "3"
+      NCLOUD_AGENT_Container02_Id: "4"
+      NCLOUD_AGENT_Container01_Capacity: "107374182400"
+      NCLOUD_AGENT_Container02_Capacity: "107374182400"
+      NCLOUD_AGENT_Container01_Url: "/data01"
+      NCLOUD_AGENT_Container02_Url: "/data02"
+      NCLOUD_GENERAL_Proxy01_Ip: ${NEXOEDGE_PROXY_IP}
+      NCLOUD_GENERAL_Proxy01_Coord_port: ${NEXOEDGE_PROXY_PORT}
+      NCLOUD_GENERAL_Network_Use_curve: "1"
+      NCLOUD_GENERAL_Network_Agent_curve_public_key_file: "/run/secrets/agent_pkey"
+      NCLOUD_GENERAL_Network_Agent_curve_secret_key_file: "/run/secrets/agent_skey"
+      NCLOUD_GENERAL_Network_Proxy_curve_public_key_file: "/run/secrets/proxy_pkey"
+    volumes:
+      - type: bind
+        source: ${NEXOEDGE_DATA_DIR}/container03
+        target: /data01
+      - type: bind
+        source: ${NEXOEDGE_DATA_DIR}/container04
+        target: /data02
+    secrets:
+      - agent_pkey
+      - agent_skey
+      - proxy_pkey
+    networks:
+      - nexoedge
+    depends_on:
+      - proxy
+
+  site-3:
+    image: ${NEXOEDGE_AGENT_IMAGE_NAME}:${TAG}
+    environment:
+      NCLOUD_AGENT_Agent_Ip: ${NEXOEDGE_STORAGE_NODE_3_IP}
+      NCLOUD_AGENT_Agent_Num_containers: "1"
+      NCLOUD_AGENT_Container01_Id: "5"
+      NCLOUD_AGENT_Container02_Id: "6"
+      NCLOUD_AGENT_Container01_Capacity: "107374182400"
+      NCLOUD_AGENT_Container02_Capacity: "107374182400"
+      NCLOUD_AGENT_Container01_Url: "/data01"
+      NCLOUD_AGENT_Container02_Url: "/data02"
+      NCLOUD_GENERAL_Proxy01_Ip: ${NEXOEDGE_PROXY_IP}
+      NCLOUD_GENERAL_Proxy01_Coord_port: ${NEXOEDGE_PROXY_PORT}
+      NCLOUD_GENERAL_Network_Use_curve: "1"
+      NCLOUD_GENERAL_Network_Agent_curve_public_key_file: "/run/secrets/agent_pkey"
+      NCLOUD_GENERAL_Network_Agent_curve_secret_key_file: "/run/secrets/agent_skey"
+      NCLOUD_GENERAL_Network_Proxy_curve_public_key_file: "/run/secrets/proxy_pkey"
+    volumes:
+      - type: bind
+        source: ${NEXOEDGE_DATA_DIR}/container05
+        target: /data01
+      - type: bind
+        source: ${NEXOEDGE_DATA_DIR}/container06
+        target: /data02
+    secrets:
+      - agent_pkey
+      - agent_skey
+      - proxy_pkey
+    networks:
+      - nexoedge
+    depends_on:
+      - proxy
+
+  site-4:
+    image: ${NEXOEDGE_AGENT_IMAGE_NAME}:${TAG}
+    environment:
+      NCLOUD_AGENT_Agent_Ip: ${NEXOEDGE_STORAGE_NODE_4_IP}
+      NCLOUD_AGENT_Agent_Num_containers: "1"
+      NCLOUD_AGENT_Container01_Id: "7"
+      NCLOUD_AGENT_Container02_Id: "8"
+      NCLOUD_AGENT_Container01_Capacity: "107374182400"
+      NCLOUD_AGENT_Container02_Capacity: "107374182400"
+      NCLOUD_AGENT_Container01_Url: "/data01"
+      NCLOUD_AGENT_Container02_Url: "/data02"
+      NCLOUD_GENERAL_Proxy01_Ip: ${NEXOEDGE_PROXY_IP}
+      NCLOUD_GENERAL_Proxy01_Coord_port: ${NEXOEDGE_PROXY_PORT}
+      NCLOUD_GENERAL_Network_Use_curve: "1"
+      NCLOUD_GENERAL_Network_Agent_curve_public_key_file: "/run/secrets/agent_pkey"
+      NCLOUD_GENERAL_Network_Agent_curve_secret_key_file: "/run/secrets/agent_skey"
+      NCLOUD_GENERAL_Network_Proxy_curve_public_key_file: "/run/secrets/proxy_pkey"
+    volumes:
+      - type: bind
+        source: ${NEXOEDGE_DATA_DIR}/container07
+        target: /data01
+      - type: bind
+        source: ${NEXOEDGE_DATA_DIR}/container08
+        target: /data02
+    secrets:
+      - agent_pkey
+      - agent_skey
+      - proxy_pkey
+    networks:
+      - nexoedge
+    depends_on:
+      - proxy
+
+  site-5:
+    image: ${NEXOEDGE_AGENT_IMAGE_NAME}:${TAG}
+    environment:
+      NCLOUD_AGENT_Agent_Ip: ${NEXOEDGE_STORAGE_NODE_5_IP}
+      NCLOUD_AGENT_Agent_Num_containers: "1"
+      NCLOUD_AGENT_Container01_Id: "9"
+      NCLOUD_AGENT_Container02_Id: "10"
+      NCLOUD_AGENT_Container01_Capacity: "107374182400"
+      NCLOUD_AGENT_Container02_Capacity: "107374182400"
+      NCLOUD_AGENT_Container01_Url: "/data01"
+      NCLOUD_AGENT_Container02_Url: "/data02"
+      NCLOUD_GENERAL_Proxy01_Ip: ${NEXOEDGE_PROXY_IP}
+      NCLOUD_GENERAL_Proxy01_Coord_port: ${NEXOEDGE_PROXY_PORT}
+      NCLOUD_GENERAL_Network_Use_curve: "1"
+      NCLOUD_GENERAL_Network_Agent_curve_public_key_file: "/run/secrets/agent_pkey"
+      NCLOUD_GENERAL_Network_Agent_curve_secret_key_file: "/run/secrets/agent_skey"
+      NCLOUD_GENERAL_Network_Proxy_curve_public_key_file: "/run/secrets/proxy_pkey"
+    volumes:
+      - type: bind
+        source: ${NEXOEDGE_DATA_DIR}/container09
+        target: /data01
+      - type: bind
+        source: ${NEXOEDGE_DATA_DIR}/container10
+        target: /data02
+    secrets:
+      - agent_pkey
+      - agent_skey
+      - proxy_pkey
+    networks:
+      - nexoedge
+    depends_on:
+      - proxy
+
+secrets:
+  agent_skey:
+    file: comm_ssl/agent_skey
+
